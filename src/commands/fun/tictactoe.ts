@@ -17,7 +17,7 @@ export default new Command({
   execute: async ({ client, interaction }) => {
     const ttt_client = new TicTacToe({
       language: `file://${__dirname}/../../../config/languages/ja.json`,
-      aiDifficulty: "Hard",
+      aiDifficulty: "Medium",
       commandOptionName: 'user',
     });
 
