@@ -16,10 +16,9 @@ export default new Command({
   ephemeral: false,
   execute: async ({ client, interaction }) => {
     const ttt_client = new TicTacToe({
-      language: `file://${__dirname}/../../config/languages/ja.json`,
+      language: `file://${__dirname}/../../../config/languages/ja.json`,
       aiDifficulty: "Hard",
       commandOptionName: 'user',
-      gameBoardEmbed: true,
     });
 
     ttt_client.handleInteraction(interaction);
