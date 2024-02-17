@@ -1,0 +1,30 @@
+{
+  "command": {
+    "description": "TicTacToeのゲームをプレイします",
+    "option-user": "プレイしたいユーザー"
+  },
+  "duel": {
+    "title": ":crossed_swords: 挑戦申請",
+    "challenge": "**{initier}**があなたに三目並べの勝負を挑みました！",
+    "action": "このメッセージにリアクションして申請を受け入れるか辞退します",
+    "expire": ":x: `{invited}`は応答しませんでした",
+    "reject": ":x: `{invited}`は申請を拒否しました",
+    "unknown-user": "そのユーザーに申請することはできません",
+    "no-bot": "ボットに申請することはできません",
+    "button": {
+      "accept": "承諾",
+      "decline": "拒否"
+    }
+  },
+  "game": {
+    "title": ":game_die: `{player1}` **VS** `{player2}`",
+    "action": "**{player}の番です**",
+    "load": "読み込み中...",
+    "end": "勝者は現れませんでした。引き分けです。",
+    "win": ":tada: {player}がゲームに勝利しました！",
+    "expire": ":x: 長時間放置されたため、Botが萎えたのでゲームを終了しました。放置プレイは趣味じゃないです。",
+    "in-progress": "別のゲームを開始することはできません、現在のゲームの終了をお待ちください。",
+    "waiting-ai": ":robot: Haruがプレイ中です、お待ちください...",
+    "ai": "Haru"
+  }
+}

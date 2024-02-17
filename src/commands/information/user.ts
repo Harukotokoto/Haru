@@ -1,7 +1,6 @@
 import { Command } from '../../lib/modules/Command';
 import { ApplicationCommandOptionType, Colors } from 'discord.js';
 import { footer } from '../../lib/utils/Embed';
-import moment from 'moment';
 
 export default new Command({
   name: 'user',
