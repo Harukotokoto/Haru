@@ -50,7 +50,7 @@ export default new Command({
               `**ユーザー名**: ${member.user.username}\n` +
               `**表示名**: ${member.displayName !== user.displayName ? `${member.displayName}(${user.displayName})` : user.displayName}\n` +
               `**ユーザーID**: ${user.id}\n` +
-              `**作成日**: <t:${member.user.createdTimestamp / 1000}>\n` +
+              `**作成日**: <t:${Math.round(member.user.createdTimestamp / 1000)}>\n` +
               `**ユーザーの所持しているロール**: ${
                 member.roles.cache
                   .filter((role) => role.id !== interaction.guild?.id)
