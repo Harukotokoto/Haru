@@ -33,34 +33,28 @@ type Command<
     | ApplicationCommandType.User,
 > = {
   type: T;
-  execute: {
-    interaction?: ({
-      client,
-      interaction,
-    }: {
-      client: ExtendedClient;
-      interaction: T extends ApplicationCommandType.ChatInput
-        ? ChatInputCommandInteraction
-        : T extends ApplicationCommandType.Message
-          ? MessageContextMenuCommandInteraction
-          : UserContextMenuCommandInteraction;
-    }) => any;
-    message?: MessageExecuteType;
-  };
+  execute: ({
+    client,
+    interaction,
+  }: {
+    client: ExtendedClient;
+    interaction: T extends ApplicationCommandType.ChatInput
+      ? ChatInputCommandInteraction
+      : T extends ApplicationCommandType.Message
+        ? MessageContextMenuCommandInteraction
+        : UserContextMenuCommandInteraction;
+  }) => any;
 };
 
 type CommandWithDefault = {
   type?: never;
-  execute: {
-    interaction?: ({
-      client,
-      interaction,
-    }: {
-      client: ExtendedClient;
-      interaction: ChatInputCommandInteraction;
-    }) => any;
-    message?: MessageExecuteType;
-  };
+  execute: ({
+    client,
+    interaction,
+  }: {
+    client: ExtendedClient;
+    interaction: ChatInputCommandInteraction;
+  }) => any;
 };
 
 export type CommandType = CommandBase &

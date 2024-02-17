@@ -35,7 +35,7 @@ export class ExtendedClient extends Client {
     });
 
     this.register_modules().then(() =>
-      this.Logger.info('Modules loaded successfully')
+      this.Logger.info('Modules loaded successfully'),
     );
 
     mongoose
@@ -49,7 +49,7 @@ export class ExtendedClient extends Client {
 
   public async loadEvents() {
     const eventFiles = await globPromise(
-      `${__dirname}/../../events/**/*{.ts,.js}`
+      `${__dirname}/../../events/**/*{.ts,.js}`,
     );
     for (const filePath of eventFiles) {
       const event = await this.importFile<Event<keyof ClientEvents>>(filePath);
@@ -63,7 +63,7 @@ export class ExtendedClient extends Client {
     const commands: CommandType[] = [];
 
     const commandFiles = await globPromise(
-      __dirname + `/../../commands/*/*{.ts,.js}`
+      __dirname + `/../../commands/*/*{.ts,.js}`,
     );
 
     for (const filePath of commandFiles) {
@@ -79,8 +79,8 @@ export class ExtendedClient extends Client {
         .set(commands)
         .then(() =>
           this.Logger.info(
-            `Registered ${commands.length} slash commands on ${this.guilds.cache.size} servers`
-          )
+            `Registered ${commands.length} slash commands on ${this.guilds.cache.size} servers`,
+          ),
         )
         .catch((e) => {
           this.Logger.info(`Failed to register slash commands`);

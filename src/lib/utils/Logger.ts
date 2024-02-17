@@ -8,7 +8,7 @@ export class Logger {
     console.log(
       `${C.Yellow}[${Reset}${now}${C.Yellow}] ${BC.Cyan}${
         C.Default
-      }INFO${Reset}   | ${C.Green}${message.toString()}${Reset}`
+      }INFO${Reset}   | ${C.Green}${message.toString()}${Reset}`,
     );
   }
 
@@ -18,7 +18,7 @@ export class Logger {
     console.log(
       `${C.Yellow}[${Reset}${now}${C.Yellow}] ${BC.Red}${
         C.Default
-      }ERROR${Reset}  | ${C.Red}${message.toString()}${Reset}`
+      }ERROR${Reset}  | ${C.Red}${message.toString()}${Reset}`,
     );
   }
 
@@ -28,7 +28,7 @@ export class Logger {
     console.log(
       `${C.Yellow}[${Reset}${now}${C.Yellow}] ${BC.Magenta}${
         C.Default
-      }DEBUG${Reset}  | ${C.Green}${message.toString()}${Reset}`
+      }DEBUG${Reset}  | ${C.Green}${message.toString()}${Reset}`,
     );
   }
 }
