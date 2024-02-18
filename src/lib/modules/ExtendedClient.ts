@@ -77,11 +77,19 @@ export class ExtendedClient extends Client {
     this.on('ready', () => {
       this.application?.commands
         .set(commands)
-        .then(() =>
+        .then(() => {
+          console.table(
+            commands.map((command) => ({
+              name: command.name,
+              permissions: command.requiredPermissions || 'None',
+              status: command.isOwnerCommand ? '👑' : '✅',
+            })),
+          );
+
           this.Logger.info(
             `Registered ${commands.length} slash commands on ${this.guilds.cache.size} servers`,
-          ),
-        )
+          );
+        })
         .catch((e) => {
           this.Logger.info(`Failed to register slash commands`);
           this.Logger.error(e);

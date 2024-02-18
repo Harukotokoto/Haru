@@ -29,8 +29,8 @@ export default new Command({
             `**WebSocket:** \`${client.ws.ping}\`ms\n` +
             `**Latency:** \`${response}\`ms`,
           color: Colors.Green,
-        }
-      ]
-    })
+        },
+      ],
+    });
   },
 });
