@@ -2,6 +2,8 @@ import { Event } from '../../lib/modules/Event';
 import { client } from '../../index';
 import { CommandError } from '../../lib/utils/CommandError';
 import { ComponentError } from '../../lib/utils/ComponentError';
+import { Colors } from 'discord.js';
+import { footer } from '../../lib/utils/Embed';
 
 export default new Event('interactionCreate', async (interaction) => {
   if (!interaction.isButton()) return;
@@ -15,16 +17,26 @@ export default new Event('interactionCreate', async (interaction) => {
     const role = interaction.guild?.roles.cache.get(roleId);
     if (!role) return await Error.create('ロールが見つかりませんでした');
 
-    member.roles
+    if (member.roles.cache.has(role.id)) {
+      return await Error.create('既に認証されています');
+    } else {
+      member.roles
       .add(role)
       .then(async () => {
         await interaction.reply({
-          content: '認証が完了しました',
+          embeds: [
+            {
+              description: '認証が完了しました',
+              color: Colors.Green,
+              footer: footer()
+            }
+          ],
           ephemeral: true,
         });
       })
       .catch(async () => {
         await Error.create('ロールを付与できませんでした');
       });
+    }
   }
 });
